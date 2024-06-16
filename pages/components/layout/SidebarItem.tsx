@@ -1,21 +1,48 @@
-import React from "react";
+
+import { useRouter } from "next/router";
+import React, { useCallback } from "react";
 import { IconType } from "react-icons";
+
+import useCurrentUser from "@/pages/hooks/useCurrentUser";
+import useLoginModal from "@/pages/hooks/useLoginModal";
 
 interface SidebarItemProps{
     label: string;
     href?: string;
     icon: IconType;
-    onClick?: ()=>void
+    onClick?: ()=>void;
+    auth?:boolean
 }
 
 const SidebarItem:React.FC<SidebarItemProps> = ({
     label,
     href,
     icon:Icon,
-    onClick
+    onClick,
+    auth
 })=>{
+    const router = useRouter()
+    const loginModal = useLoginModal()
+
+    const {data:currentUser} = useCurrentUser()
+
+    const handleClick = useCallback(()=>{
+        
+        if(onClick){
+            return onClick()
+        }
+
+        // 如果点击了item，而没有登录，则跳转到登录
+        if(auth && !currentUser){
+            loginModal.onOpen()
+        }else if(href){
+            router.push(href)
+        }
+
+    },[onClick,router,href,loginModal,auth,currentUser])
+
     return (
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center" onClick={handleClick}>
              {/* 当小于lg时，只显示图标，大于lg时隐藏 */}
             <div className="
                 realative
