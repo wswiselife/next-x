@@ -8,3 +8,4 @@ export default function Home() {
     <div className="text-3xl text-red-600">nihao</div>
   );
 }
+ 

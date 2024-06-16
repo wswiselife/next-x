@@ -1,0 +1,4 @@
+interface SidebarItemProps{
+    label: string;
+    
+}
