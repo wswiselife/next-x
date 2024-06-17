@@ -42,9 +42,9 @@ export default NextAuth({
             },
         }),
     ],
-    pages: {
-        signIn: "/",
-    },
+    // pages: {
+    //     signIn: "/",
+    // },
     debug: process.env.NODE_ENV === "development",
     session: { strategy: "jwt" },
     jwt: {

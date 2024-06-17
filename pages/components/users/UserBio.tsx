@@ -6,6 +6,7 @@ import useCurrentUser from "@/pages/hooks/useCurrentUser"
 import useUser from "@/pages/hooks/useUser"
 
 import Button from "../Button"
+import useEditModal from '@/pages/hooks/useEdit'
 
 
 interface UserBioProps {
@@ -16,6 +17,7 @@ const UserBio:React.FC<UserBioProps> = ({userId})=>{
 
     const {data:fetchedUser} = useUser(userId)
     const {data:currentUser} = useCurrentUser()
+    const editModal = useEditModal()
 
     const createdAt = useMemo(()=>{
         if(!fetchedUser?.createdAt){
@@ -33,7 +35,7 @@ const UserBio:React.FC<UserBioProps> = ({userId})=>{
                 {// 如果是自己
                     currentUser?.id === userId?(
                         // 编辑信息按钮
-                        <Button label="Edit" onClick={()=>{}} secondry />
+                        <Button label="Edit" onClick={editModal.onOpen} secondry />
                     ):(
                         <Button label="Follow" onClick={()=>{}} secondry />)
                 }

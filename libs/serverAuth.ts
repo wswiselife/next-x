@@ -7,8 +7,9 @@ import prisma from "@/libs/prismadb";
 const serverAuth = async (req: NextApiRequest) => {
     const session = await getSession({ req });
 
+    console.log("session.user", session);
     if (!session?.user?.email) {
-        throw new Error("Not signed in");
+        throw new Error("Not signed in ");
     }
 
     const currentUser = await prisma.user.findUnique({
