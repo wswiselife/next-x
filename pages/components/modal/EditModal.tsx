@@ -30,6 +30,7 @@ const Edit = ()=>{
         setBio(currentUser?.bio)
         setProfileImage(currentUser?.profileImage)
         setCoverImage(currentUser?.coverImage)
+        // /pages/api/edit 获取 currentUser.id失败，转由此处传入id-20240617
         setId(currentUser?.id)
     },[currentUser])
 
