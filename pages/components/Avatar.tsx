@@ -46,7 +46,8 @@ const Avatar:React.FC<AvatarProps> =({
                 }}
                 alt="Avatar"
                 onClick={onClick}
-                src={fetchedUser?.profileImage || '/images/placeholder.svg'}
+                src={fetchedUser?.profileImage || '/images/person.svg'}
+                className="bg-neutral-200"
            />
         </div>
     )
