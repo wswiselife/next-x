@@ -1,6 +1,7 @@
 
 import Header from "./components/Header";
 import Form from './components/Form'
+import PostFeed from "./components/posts/PostFeed";
 
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
     <>
       <Header label="Home"></Header>
       <Form placeholder="What's happening?"/>
+      <PostFeed />
     </>
   );
 }

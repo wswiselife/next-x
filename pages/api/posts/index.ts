@@ -32,7 +32,7 @@ export default async function handler(
             const { userId } = req.query;
             let posts;
 
-            if (userId && typeof userId === "string") {
+            if (userId && typeof userId == "string") {
                 // 1. 查特定用户的post
                 posts = await prisma.post.findMany({
                     where: { userId },
