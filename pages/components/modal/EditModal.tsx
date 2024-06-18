@@ -8,6 +8,7 @@ import useUser from "@/pages/hooks/useUser"
 
 import Modal from "../Modal"
 import Input from "../Input"
+import ImageUpload from "../ImageUpload"
 
 
 const Edit = ()=>{
@@ -67,6 +68,18 @@ const Edit = ()=>{
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
+            <ImageUpload 
+                value={coverImage}
+                disabled={isLoading}
+                label="Upload cover image"
+                onChange={(image) => setCoverImage(image)}  
+            />
+            <ImageUpload 
+                value={profileImage}
+                disabled={isLoading}
+                label="Upload profile image"
+                onChange={(image) => setProfileImage(image)}  
+            />
             <Input placeholder="Name" value={name} disabled={isLoading} onChange={(e) =>setName(e.target.value)} />
             <Input placeholder="Username" value={username} disabled={isLoading} onChange={(e) =>setUsername(e.target.value)} />
             <Input placeholder="Bio" value={bio} disabled={isLoading} onChange={(e) =>setBio(e.target.value)} />
