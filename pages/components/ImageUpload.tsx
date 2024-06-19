@@ -20,7 +20,7 @@ const ImageUpload:React.FC<ImageUploadProps> = ({
 
     const handleChange = useCallback((base64:string)=>{
         onChange(base64)
-    },[onchange])
+    },[onChange])
 
     const handleDrop = useCallback((files:any) =>{
         const file = files[0]

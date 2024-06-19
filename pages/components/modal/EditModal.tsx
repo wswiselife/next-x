@@ -64,7 +64,7 @@ const Edit = ()=>{
         }finally{
             setIsLoading(false)
         }
-    },[name,username,bio,profileImage,coverImage,editModal,mutateFetchedUser])
+    },[id,name,username,bio,profileImage,coverImage,editModal,mutateFetchedUser])
 
     const bodyContent = (
         <div className="flex flex-col gap-4">

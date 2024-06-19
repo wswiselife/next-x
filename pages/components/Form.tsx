@@ -47,7 +47,7 @@ const Form:React.FC<FormProps> = ({
         }finally{
             setIsLoading(false)
         }
-    },[body,mutatePost])
+    },[body,mutatePost,currentUser])
 
     // 
 
