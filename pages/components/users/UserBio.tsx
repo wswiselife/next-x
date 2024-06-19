@@ -7,6 +7,7 @@ import useUser from "@/pages/hooks/useUser"
 
 import Button from "../Button"
 import useEditModal from '@/pages/hooks/useEdit'
+import useFollow from '@/pages/hooks/useFollow'
 
 
 interface UserBioProps {
@@ -18,6 +19,8 @@ const UserBio:React.FC<UserBioProps> = ({userId})=>{
     const {data:fetchedUser} = useUser(userId)
     const {data:currentUser} = useCurrentUser()
     const editModal = useEditModal()
+
+    const {isFollowing,toggleFollow} = useFollow(userId)
 
     const createdAt = useMemo(()=>{
         if(!fetchedUser?.createdAt){
@@ -37,7 +40,12 @@ const UserBio:React.FC<UserBioProps> = ({userId})=>{
                         // 编辑信息按钮
                         <Button label="Edit" onClick={editModal.onOpen} secondry />
                     ):(
-                        <Button label="Follow" onClick={()=>{}} secondry />)
+                        <Button 
+                            label={isFollowing?'Unfollow':'Follow'} 
+                            onClick={toggleFollow} 
+                            secondry={!isFollowing}
+                            outline = {!isFollowing}
+                        />)
                 }
             </div>
 
