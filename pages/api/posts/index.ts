@@ -16,7 +16,7 @@ export default async function handler(
             // const { currentUser } = await serverAuth(req);
 
             const { body, currentUser } = req.body;
-            console.log("currentUser", currentUser.id);
+            // console.log("currentUser", currentUser.id);
 
             const post = await prisma.post.create({
                 data: {

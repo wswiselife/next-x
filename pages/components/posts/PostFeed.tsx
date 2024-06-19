@@ -12,14 +12,14 @@ const PostFeed:React.FC<PostFeedProps> = ({userId})=>{
 
     // console.log('posts',posts);
     return ( 
-        <div className="flex flex-col gap-4">
+        <div>
             {
                 // 注意这里是（）
                 posts.map((post:Record<string,any>)=>(
                     <PostItem 
                         userId={userId}
                         key={post.id}
-                        data={post} 
+                        data={post}
                     />
                 ))
             }
