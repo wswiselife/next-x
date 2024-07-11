@@ -1,11 +1,15 @@
 import { NextApiRequest } from "next";
 import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+// import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 import prisma from "@/libs/prismadb";
 
 // 判断用户是否登录，获取session,相当于axios中的token的作用，
 const serverAuth = async (req: NextApiRequest) => {
     const session = await getSession({ req });
+    // const session = await getServerSession({ req });
+    // const session = await getServerSession(authOptions);
 
     console.log("session.user", session);
     if (!session?.user?.email) {
